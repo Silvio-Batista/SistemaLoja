@@ -5,13 +5,14 @@ require 'Cart.php';
 
 session_start();
 
+
 $cart = new Cart;
 $productsInCart = $cart->getCart();
 
 var_dump($productsInCart);
 
-if (isset($_GET['id'])) {
-  $id = strip_tags($_GET['id']);
+if (isset($_GET['idProduto'])) {
+  $id = strip_tags($_GET['idProduto']);
   $cart->remove($id);
   header('Location: mycart.php');
 }
@@ -43,7 +44,7 @@ if (isset($_GET['id'])) {
         <input type="text" value="<?php echo $product->getQuantity() ?>">
         Price: R$ <?php echo number_format($product->getPrice(), 2, ',', '.') ?>
         Subtotal: R$ <?php echo number_format($product->getPrice() * $product->getQuantity(), 2, ',', '.') ?>
-        <a href="?id=<?php echo $product->getId(); ?>">remove</a>
+        <a href="?idProduto=<?php echo $product->getId(); ?>">remove</a>
       </li>
     <?php endforeach; ?>
     <li>Total: R$ <?php echo number_format($cart->getTotal(), 2, ',', '.'); ?></li>

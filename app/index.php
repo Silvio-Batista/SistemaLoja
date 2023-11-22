@@ -3,30 +3,9 @@
 require 'Cart.php';
 require 'Product.php';
 require('../database/conexao.php');
+
 session_start();
-
-$products = [
-  1 => ['id' => 1, 'name' => 'geladeira', 'price' => 1000, 'quantity' => 1],
-  2 => ['id' => 2, 'name' => 'mouse', 'price' => 100, 'quantity' => 1],
-  3 => ['id' => 3, 'name' => 'teclado', 'price' => 10, 'quantity' => 1],
-  4 => ['id' => 4, 'name' => 'monitor', 'price' => 5000, 'quantity' => 1],
-];
-
-
-if (isset($_GET['id'])) {
-  $id = strip_tags($_GET['id']);
-  $productInfo = $products[$id];
-  $product = new Product;
-  $product->setId($productInfo['id']);
-  $product->setName($productInfo['name']);
-  $product->setPrice($productInfo['price']);
-  $product->setQuantity($productInfo['quantity']);
-
-  $cart = new Cart;
-  $cart->add($product);
-}
-
-var_dump($_SESSION['cart'] ?? []);
+error_reporting(0);
 
 ?>
 <!DOCTYPE html>
@@ -43,11 +22,35 @@ var_dump($_SESSION['cart'] ?? []);
   <a href="mycart.php">Go to cart</a>
   <ul style=" list-style-type: none">
     <?php
-        while ($user_data = mysqli_fetch_assoc($result)) {
-          echo "<li>Produto: ". $user_data['nomeProduto'] . " <br>Preço: " . $user_data['preco'] . " <br>Descrição: " . $user_data['descricao'] . 
-          '<br><a href="?idProduto='.$user_data['idProduto'] .'">Adicionar ao carrinho</a></li><br>';
-        } ?>
+    while ($productDB = mysqli_fetch_assoc($result)) {
+      echo "<li>Produto: " . $productDB['nomeProduto'] . " Quantidade: " . $productDB['quantidade'] . " <br>Preço: R$" . number_format($productDB['preco'], 2, ',', '.') . " <br>Descrição: " . $productDB['descricao'] .
+        '<br><a href="?idProduto=' . $productDB['idProduto'] . '">Adicionar ao carrinho</a></li><br>';
+    }
+    ?>
   </ul>
+  <?php
+  $id = strip_tags($_GET['idProduto']);
+
+  $idProdutos = "SELECT * FROM produtos WHERE idProduto = $id";
+  $resultProdutos = $mysqli->query($idProdutos);
+  $productCart = mysqli_fetch_assoc($resultProdutos);
+
+  if (isset($_GET['idProduto'])) {
+
+
+    $productInfo = $productCart;
+
+    $product = new Product;
+    $product->setId($productInfo['idProduto']);
+    $product->setName($productInfo['nomeProduto']);
+    $product->setPrice($productInfo['preco']);
+    $product->setQuantity($productInfo['quantidade']);
+
+
+    $cart = new Cart;
+    $cart->add($product);
+  }
+  ?>
 </body>
 
 </html>

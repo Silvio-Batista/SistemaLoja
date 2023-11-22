@@ -1,51 +1,53 @@
 <?php
-// require('../database/conexao.php');
+require('../database/conexao.php');
 
 class Product
 {
 
-  private int $id;
-  private string $name;
-  private int $price;
-  private int $quantity;
+  private int $idProduto;
+  private string $nomeProduto;
+  private string $preco;
+  private int $quantidade;
 
-  public function setId(int $id)
+
+  public function setId(int $idProduto)
   {
-    $this->id = $id;
+    $this->idProduto = $idProduto;
   }
 
-  public function setName(string $name)
+  public function setName(string $nomeProduto)
   {
-    $this->name = $name;
+    $this->nomeProduto = $nomeProduto;
   }
 
-  public function setPrice(int $price)
+  public function setPrice(string $preco)
   {
-    $this->price = $price;
+    $this->preco = $preco;
   }
 
-  public function setQuantity(int $quantity)
+  public function setQuantity(int $quantidade)
   {
-    $this->quantity = $quantity;
+    $this->quantidade = $quantidade;
   }
 
   public function getId()
   {
-    return $this->id;
+    return $this->idProduto;
   }
 
   public function getName()
   {
-    return $this->name;
+    return $this->nomeProduto;
   }
+
 
   public function getPrice()
   {
-    return $this->price;
+    return $this->preco;
   }
 
   public function getQuantity()
   {
-    return $this->quantity;
+    return $this->quantidade;
   }
 }

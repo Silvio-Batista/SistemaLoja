@@ -2,7 +2,6 @@
 
 class Cart
 {
-
   public function add(Product $product)
   {
     $inCart = false;
