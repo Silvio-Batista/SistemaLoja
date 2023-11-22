@@ -1,4 +1,6 @@
 <?php
+// include 'login.php';
+// include 'cadastrar.php';
 require 'Cart.php';
 require 'Product.php';
 require('../database/conexao.php');
@@ -16,11 +18,20 @@ error_reporting(0);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Suplementos Frangolino</title>
 </head>
+<header>
+  <h3>
+    <?php 
+    if(!isset($_SESSION)){
+      session_start();
+    }
+    echo "Olá, " . $_SESSION['nome']
+    ?>
+  </h3>
+</header>
 <body>
   <a href="mycart.php">Go to cart</a>
-  <a href="login.php">login</a>
-  <a href="cadastrar.php">Cadastrar</a>
-
+  <a href="sair.php">deslogar</a>
+  
   <ul style=" list-style-type: none">
     <?php
     while ($productDB = mysqli_fetch_assoc($result)) {
