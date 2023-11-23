@@ -1,0 +1,125 @@
+/* Estilo Geral */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #ffffff;
+  height: 100vh;
+}
+.flex {
+  display: flex;
+}
+.logo img {
+  width: 130px;
+  height: 130px;
+}
+i {
+  padding: 10px;
+  color: #ac1929;
+  font-size: 22px;
+}
+/* Estilo do header  */
+header {
+  padding: 20px 8%;
+}
+header > .interface {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  color: #5c5c5c;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.2s;
+}
+header nav.menu-desktop a:hover {
+  color: #ac1929;
+  transform: scale(1.15);
+}
+header nav ul {
+  list-style-type: none;
+}
+header nav.menu-desktop ul li {
+  display: inline-block;
+  padding: 0 40px;
+}
+section {
+  padding: 40px 4%;
+}
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  border-radius: 5px;
+  box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+  padding: 30px;
+  margin: 20px;
+  width: 400px;
+  transition: all 0.3s ease-out;
+}
+.card:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.card p {
+  color: #a3a5ae;
+  font-size: 16px;
+}
+.image {
+  float: right;
+  max-width: 75px;
+  max-height: 75px;
+}
+.btn {
+  margin-top: 10px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #ac1929;
+  border: 0;
+  border-radius: 30px;
+  cursor: pointer;
+}
+footer {
+  padding: 10px;
+  box-shadow: 0 0 10px rgb(86, 86, 86);
+}
+footer .flex {
+  justify-content: space-between;
+}
+footer .line-footer {
+  padding: 10px 0;
+}
+.borda {
+  border-top: 2px solid #ac1929;
+}
+footer .line-footer p i {
+  color: #ac1929;
+  font-size: 22px;
+}
+footer .line-footer p a {
+  color: #ac1929;
+  text-decoration: none;
+}
+.btn-social button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  font-size: 23px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: 0.2s;
+}
