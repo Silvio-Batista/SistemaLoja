@@ -85,14 +85,14 @@ if (isset($_POST['email'])) {
                         <img src="images/Suplementos frangolino.png" alt="logo supllementos fragolino">
                     </div> <!-- logo footer -->
                     <div class="btn-social">
-                        <a href="https://www.instagram.com/silsawkkj/"><button><i class="bi bi-instagram"></i></button></a>
-                        <a href="https://github.com/Silvio-Batista"><button><i class="bi bi-github"></i></button></a>
-                        <a href="https://www.linkedin.com/in/silvio-p-batista/"><button><i class="bi bi-linkedin"></i></button></a>
+                        <a href="#"><button><i class="bi bi-instagram"></i></button></a>
+                        <a href="#"><button><i class="bi bi-github"></i></button></a>
+                        <a href="#"><button><i class="bi bi-linkedin"></i></button></a>
                     </div> <!-- button footer -->
                 </div><!-- flex -->
             </div><!-- line footer -->
             <div class="line-footer borda">
-                <p><i class="bi bi-code-square"></i><a href="https://github.com/Silvio-Batista"> Developed by Silvio</a></p>
+                <p><i class="bi bi-code-square"></i><a href="#"> Developed by Eduardo</a></p>
             </div><!-- line footer -->
         </div>
     </footer>
